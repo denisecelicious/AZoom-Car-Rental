@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/icons8-car-96.png">
+    <style>
+        select,
+        input {
+            text-align: center;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .result {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--navbar-->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="/images/icons8-car-96.png" width="40" height="40" class="d-inline-block align-top" alt="logo.png">
+            <a href="index.html">AZoom Car Rental</a>
+        </div>
+        <div class="menu">
+            <ul class="nav-links">
+                <li><a href="cars.html">Cars</a></li>
+                <li><a href="rates.html">Rates</a></li>
+                <li><a href="location.html">Locations</a></li>
+                <li><a href="login.html" id="loginButton">Login</a></li>
+                <li><a href="#logout" id="logoutButton">Logout</a></li>
+                <li class="profile"><a href="profile.html" id="profileButton"><img src="images/user.png" alt="profile"
+                            width="35" height="35"></a></li>
+            </ul>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            ☰
+        </div>
+    </nav>
+
+    <!--Rental Pricing-->
+    <section id="aboutSection">
+        <h1 style="color: white;">Our Rates</h1>
+        <div style="background-color: #F2F2F2; width: 60%; margin: auto; border-radius: 10px; padding: 30px;">
+            <p>
+                <img src="/images/info.png" alt="Info icon" width="20px" height="20px">
+                Full Day Rates
+            </p>
+            <p>You only pay for the days you use!</p>
+            <div class="steps-container">
+                <div class="step">
+                    <img src="/images/premium-car.png" alt="Premium Car">
+                    <hr>
+                    <h4>Premium</h4>
+                    <p> <b>$90</b> / Day</p>
+                </div>
+                <div class="step">
+                    <img src="/images/economy-car.png" alt="Economy Car">
+                    <hr>
+                    <h4>Economy</h4>
+                    <p> <b>$80</b> / Day</p>
+                </div>
+                <div class="step">
+                    <img src="/images/standard-car.png" alt="Standard Car">
+                    <hr>
+                    <h4>Standard</h4>
+                    <p> <b>$70</b> / Day</p>
+                </div>
+            </div>
+            <br>
+            <button id="viewCarBtn" onclick="window.location.href='/cars.html'"
+                style="white-space: nowrap; font-size: 15px;">Explore the vehicles</button>
+        </div>
+    </section>
+
+    <!--Repair/Damages Costs-->
+    <section id="aboutSection">
+        <h2 style="color: white;">Repair and Damage Costs</h2>
+        <div style="background-color: #F2F2F2; width: 60%; margin: auto; border-radius: 10px; padding: 30px;">
+            <p>
+                <img src="/images/info.png" alt="Info icon" width="20px" height="20px">
+                Fees may vary
+            </p>
+            <p>You will have to pay if they are damages found in the car.</p>
+            <p>Inspections will be made after return.</p>
+            <div class="steps-container">
+                <div class="step">
+                    <img src="/images/damage.png" alt="Damages">
+                    <h4>Damage Fee</h4>
+                    <p style="font-size: 14px;">Significant damages like part replacements could cost up to $1000.</p>
+                </div>
+                <div class="step">
+                    <img src="/images/repair.png" alt="Repair">
+                    <h4>Repair Fee</h4>
+                    <p style="font-size: 14px;">Minor scratches/dents could cost between $30 - $100.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Estimate Rental Costs-->
+    <section id="aboutSection">
+        <h2 style="color: white;">Estimate your drive</h2>
+        <div style="background-color: #F2F2F2; width: 60%; margin: auto; border-radius: 10px; padding: 30px;">
+            <p>
+                <img src="/images/info.png" alt="Info icon" width="20px" height="20px">
+                Calculate the estimated cost of your drive based on the vehicle rates.
+            </p>
+            <label for="days">Enter the Number of Days:</label>
+            <input type="number" id="days" min="1" value="1" oninput="calculateCost()">
+
+            <label for="carType">Select Car Type:</label>
+            <select id="carType" onchange="calculateCost()">
+                <option value="90">Premium - $90/day</option>
+                <option value="80">Economy - $80/day</option>
+                <option value="70">Standard - $70/day</option>
+            </select>
+
+            <div class="result" id="estimatedCost">Estimated Cost: $0</div>
+        </div>
+    </section>
+
+
+
+
+    <script>
+        // to toggle navbar
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('active');
+        }
+
+
+        // Check for the logged-in user when the page loads
+        document.addEventListener("DOMContentLoaded", () => {
+            const loggedInUser = sessionStorage.getItem("loggedInUser"); // Use sessionStorage
+            const loginButton = document.getElementById("loginButton");
+            const logoutButton = document.getElementById("logoutButton");
+            const profileButton = document.getElementById("profileButton");
+
+            if (loggedInUser) {
+                // User is logged in
+                loginButton.style.display = "none";
+                logoutButton.style.display = "block";
+                profileButton.style.display = "block"
+            } else {
+                // No user is logged in
+                loginButton.style.display = "block";
+                logoutButton.style.display = "none";
+                profileButton.style.display = "none"
+            }
+        });
+
+
+        // Handle logout
+        document.addEventListener("DOMContentLoaded", () => {
+            const logoutBtn = document.getElementById("logoutButton");
+
+            if (!logoutBtn) {
+                console.error("Logout button not found.");
+                return; // Exit function if button doesn't exist
+            }
+
+            logoutBtn.addEventListener("click", (e) => {
+                e.preventDefault(); // Prevent default link behavior
+
+                if (confirm("Are you sure you want to log out?")) {
+                    sessionStorage.removeItem("loggedInUser"); // Clear session storage
+                    localStorage.removeItem("loggedInUser");
+                    alert("You have successfully logged out.");
+
+                    // Redirect to home page after logout
+                    window.location.href = "index.html";
+                }
+            });
+        });
+
+        // estimate the rental costs
+        function calculateCost() {
+            let days = document.getElementById("days").value;
+            let carType = document.getElementById("carType").value;
+
+            if (days < 1) {
+                document.getElementById("estimatedCost").innerText = "Please enter a valid number of days.";
+                return;
+            }
+
+            let totalCost = days * carType;
+            document.getElementById("estimatedCost").innerText = "Estimated Cost: $" + totalCost;
+        }
+
+        // Call function initially to set default estimate
+        calculateCost();
+    </script>
+</body>
+
+</html>

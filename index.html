@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AZoom Car Rental</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="images/icons8-car-96.png">
+</head>
+
+<body>
+
+  <!--navbar-->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="/images/icons8-car-96.png" width="40" height="40" class="d-inline-block align-top" alt="logo.png">
+      <a href="index.html">AZoom Car Rental</a>
+    </div>
+    <div class="menu">
+      <ul class="nav-links">
+        <li><a href="cars.html">Cars</a></li>
+        <li><a href="rates.html">Rates</a></li>
+        <li><a href="location.html">Locations</a></li>
+        <li><a href="login.html" id="loginButton">Login</a></li>
+        <li><a href="#logout" id="logoutButton">Logout</a></li>
+        <li class="profile"><a href="profile.html" id="profileButton"><img src="images/user.png" alt="profile"
+              width="35" height="35"></a></li>
+      </ul>
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+      ☰
+    </div>
+  </nav>
+
+  <!--main hero section-->
+  <!--
+  <section id="mainSection">
+    
+    <div class="wrapper">
+      <div class="circle-container"></div>
+    </div>
+
+    <div class="columnRight">
+      <h1>Start driving with AZoom!</h1>
+      <p style="font-weight: lighter;">Book a car in minutes!</p>
+      <button id="bookNowBtn" onclick="window.location.href='/login.html'">Book now</button>
+    </div>
+    
+  </section>
+-->
+
+  <div class="hero-image">
+    <div class="hero-text">
+      <h1>Start driving with AZoom!</h1>
+      <p style="font-weight: light;">Rent a car in minutes!</p>
+      <button id="bookNowBtn" onclick="window.location.href='/cars.html'">Book now</button>
+    </div>
+  </div>
+
+  <!--Why choose AZoom-->
+  <section id="aboutSection">
+    <h3>Why AZoom?</h3>
+    <div class="steps-container">
+      <div class="step">
+        <img src="images/signup.png" alt="Sign up">
+        <h4>Easy Registration</h4>
+        <p>Just Sign up to start booking!</p>
+      </div>
+      <div class="step">
+        <img src="images/dollar.png" alt="Good Rates">
+        <h4>No Deposit or membership fee</h4>
+        <p>Pay for the days you drive!</p>
+      </div>
+      <div class="step">
+        <img src="images/rent-a-car.png" alt="Rent Car">
+        <h4>Rent a car in minutes</h4>
+        <p>Easy to book in 3 easy steps!</p>
+      </div>
+    </div>
+  </section>
+
+  <br>
+
+   <!--How to book-->
+  <section id="bookingRef">
+    <h3>How to Book with AZoom</h3>
+    <div class="steps-container">
+      <div class="step">
+        <img src="images/icons8-car-96.png" alt="Select Car">
+        <h4>Search</h4>
+        <p>Find your preferred car</p>
+      </div>
+      <div class="step">
+        <img src="images/booking.png" alt="Book the Car">
+        <h4>Book</h4>
+        <p>Choose a car and model that suits you.</p>
+      </div>
+      <div class="step">
+        <img src="images/pay.png" alt="Make Payment">
+        <h4>Drive</h4>
+        <p>Collect your car at one of our locations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!--Car Preview-->
+  <section id="carPreview">
+    <div class="carTitle">
+      <h1>Cars</h1>
+      <p style="font-weight: 500;">Meet the fleet to suit your needs</p>
+    </div>
+    <class class="grid-container" id="carGrid"></class>
+    <button id="viewCarBtn" onclick="window.location.href='/cars.html'">Explore</button>
+  </section>
+
+  <br>
+
+  <script>
+    // to toggle hamburger menu
+    function toggleMenu() {
+      const menu = document.querySelector('.menu');
+      menu.classList.toggle('active');
+    }
+
+    // Check for the logged-in user when the page loads
+    document.addEventListener("DOMContentLoaded", () => {
+      const loggedInUser = sessionStorage.getItem("loggedInUser"); // Use sessionStorage
+      const loginButton = document.getElementById("loginButton");
+      const logoutButton = document.getElementById("logoutButton");
+      const profileButton = document.getElementById("profileButton");
+
+      if (loggedInUser) {
+        // User is logged in
+        loginButton.style.display = "none";
+        logoutButton.style.display = "block";
+        profileButton.style.display = "block"
+      } else {
+        // No user is logged in
+        loginButton.style.display = "block";
+        logoutButton.style.display = "none";
+        profileButton.style.display = "none"
+      }
+    });
+
+    // Handle logout
+    document.addEventListener("DOMContentLoaded", () => {
+      const logoutBtn = document.getElementById("logoutButton");
+
+      if (!logoutBtn) {
+        console.error("Logout button not found.");
+        return; // Exit function if button doesn't exist
+      }
+
+      logoutBtn.addEventListener("click", (e) => {
+        e.preventDefault(); // Prevent default link behavior
+
+        if (confirm("Are you sure you want to log out?")) {
+          sessionStorage.removeItem("loggedInUser"); // Clear session storage
+          alert("You have successfully logged out.");
+
+          // Redirect to home page after logout
+          window.location.href = "index.html";
+        }
+      });
+    });
+
+    const carsData = [
+      { id: 1, name: 'Hyundai Creta', image: 'images/hyundai-creta.jpeg', seats: '4 seater', vehicleType: 'SUV', fuelType: 'Petrol', rate: '70' },
+      { id: 2, name: 'Toyota Urban Cruiser', image: 'images/toyata-cruiser.jpeg', seats: '5 seater', vehicleType: 'SUV', fuelType: 'Petrol', rate: '80' },
+      { id: 3, name: 'Kia Sonet', image: 'images/kia-sonet.jpeg', seats: '5 seater', vehicleType: 'SUV', fuelType: 'Petrol', rate: '90' }
+    ]
+
+    const carGrid = document.getElementById('carGrid')
+
+    carsData.forEach(car => {
+      const carItem = document.createElement('div');
+
+      carItem.classList.add('grid-item')
+
+      carItem.innerHTML = `
+      <img src="${car.image}" alt="${car.name}">
+      <h5>${car.name}</h5>
+      <p>Seats: ${car.seats}</p>
+      <p>Rate: <b>$${car.rate}</b> / day</p>
+    `;
+
+      carGrid.appendChild(carItem);
+    })
+  </script>
+</body>
+
+</html>

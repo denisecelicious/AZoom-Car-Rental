@@ -1,0 +1,1217 @@
+* {
+    /*
+    margin: 0;
+    padding: 0;
+     */
+    box-sizing: border-box;
+    font-family: "Poppins", serif;
+}
+
+body,
+html {
+    height: 100%;
+    /* Ensures it covers the full viewport */
+    margin: 0;
+    /* Removes default margin */
+    background: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    /* Keeps the gradient fixed while scrolling */
+}
+
+/* nav bar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+    color: #fff;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Logo Styling */
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Navigation Menu */
+.menu {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: flex-end;
+    padding-top: 10px;
+}
+
+/* Nav Links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.nav-links li {
+    display: inline;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: cyan;
+}
+
+/* Profile Icon */
+.profile img {
+    border-radius: 50%;
+    border: 2px solid white;
+    transition: transform 0.3s ease, border 0.3s ease;
+    vertical-align: middle;
+}
+
+.profile img:hover {
+    transform: scale(1.1);
+    border-color: cyan;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+    position: relative;
+    right: 20px;
+    bottom: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    /* Show Hamburger Icon */
+    .hamburger {
+        display: block;
+    }
+
+    #bookNowBtn {
+        opacity: 0.5;
+    }
+
+    /* Fullscreen Menu */
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.954);
+        transition: transform 0.5s ease-in-out;
+        transform: translateY(-100%);
+    }
+
+    .menu.active {
+        display: flex;
+        transform: translateY(0);
+    }
+
+    .nav-links {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+
+    .nav-links a {
+        font-size: 1.5rem;
+    }
+
+    .nav-links:hover {
+        color: cyan;
+    }
+
+    .profile img {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+
+
+/* login.html */
+.container {
+    max-width: 400px;
+    margin: 100px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.container h3 {
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+#submitBtn {
+    appearance: button;
+    backface-visibility: hidden;
+    background-color: #4E76A1;
+    border-radius: 6px;
+    border-width: 0;
+    box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .1) 0 2px 5px 0, rgba(0, 0, 0, .07) 0 1px 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Poppins", serif;
+    font-size: 100%;
+    height: 44px;
+    line-height: 1.15;
+    margin: 12px 0 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transform: translateZ(0);
+    transition: all .2s, box-shadow .08s ease-in;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 100%;
+}
+
+#submitBtn:hover {
+    background-color: #4e76a1d7;
+    transition: color 0.3s ease;
+}
+
+/*
+.circle-container {
+    width: 650px;
+    height: 580px;
+    border-radius: 50%;
+    background-image: url('images/photo-1504215680853-026ed2a45def.avif');
+    background-size: cover;
+    background-position: center;
+}
+*/
+
+/*
+#mainSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 100px;
+    height: 90vh;
+    text-align: center;
+    padding: 20px;
+    
+}
+*/
+
+.hero-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/images/car-hero.jpg");
+    height: 55%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.columnRight {
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    section {
+        flex-direction: column;
+        /* Stack items on small screens */
+        text-align: center;
+    }
+
+    .circle-container {
+        width: 140px;
+        /* Slightly smaller for mobile */
+        height: 110px;
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 per row on tablets */
+    }
+
+    #viewCarBtn {
+        font-size: 0.9rem;
+        /* Reduce font size for small screens */
+        height: 40px;
+        max-width: 200px;
+        /* Adjust button width */
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: repeat(1, 1fr);
+        /* 1 per row on mobile */
+    }
+
+    #viewCarBtn {
+        font-size: 0.9rem;
+        height: 36px;
+    }
+}
+
+
+#bookNowBtn {
+    appearance: button;
+    backface-visibility: hidden;
+    background-color: navy;
+    border-radius: 6px;
+    border-width: 0;
+    box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .1) 0 2px 5px 0, rgba(0, 0, 0, .07) 0 1px 1px 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: "Poppins", serif;
+    font-size: 100%;
+    height: 44px;
+    line-height: 1.15;
+    margin: 12px 0 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-transform: none;
+    transform: translateZ(0);
+    transition: all .2s, box-shadow .08s ease-in;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    width: 50%;
+}
+
+#bookNowBtn:hover {
+    background-color: navy;
+    opacity: 0.8;
+}
+
+/* cars.html */
+.carTitle {
+    text-align: center;
+    color: white;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.grid-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.grid-item img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+#viewCarBtn {
+    appearance: button;
+    background-color: navy;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    height: 40px;
+    width: 80%;
+    /* Ensures proper button width */
+    max-width: 150px;
+    /* Prevents button from being too wide */
+    margin: 10px auto;
+    /* Centers button inside card */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+}
+
+#viewCarBtn:hover {
+    background-color: white;
+    border-style: solid;
+    border-color: navy;
+    color: navy;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}
+
+/* Car Details */
+.details-container {
+    display: flex;
+    align-items: center;
+    /* Align items vertically */
+    justify-content: center;
+    /* Center content horizontally */
+    gap: 30px;
+    /* Space between image and text */
+    max-width: 80%;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.details-container img {
+    width: 50%;
+    /* Adjust width of the image */
+    max-width: 500px;
+    height: auto;
+    border-radius: 10px;
+}
+
+car-info {
+    flex: 1;
+    /* Allow text section to take remaining space */
+    text-align: left;
+}
+
+.car-info h2 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.car-info p {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+#statusBtn {
+    background-color: rgb(96, 239, 96);
+    font-weight: 500;
+    padding: 4px;
+    display: inline-block;
+    border-radius: 8px;
+    color: black;
+    width: 60%;
+    text-align: center;
+    font-size: 18px;
+}
+
+/* for booking & about section */
+#bookingRef {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+#aboutSection {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+#aboutSection h3 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+#bookingRef h3 {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.steps-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* Ensures responsiveness */
+}
+
+.step {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 300px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.step img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.step h4 {
+    font-size: 1.5rem;
+    color: navy;
+}
+
+.step p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.step:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+    .steps-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .step {
+        width: 100%;
+    }
+}
+
+#bookCarBtn {
+    appearance: button;
+    background-color: navy;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    height: 40px;
+    width: 60%;
+    /* Ensures proper button width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#bookCarBtn:hover {
+    background-color: white;
+    border-style: solid;
+    border-color: navy;
+    color: navy;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}
+
+/* Car Booking Modal */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+/* Modal Content Box */
+.modal-content {
+    background: white;
+    width: 90%;
+    /* Responsive width */
+    max-width: 800px;
+    /* Set max width */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    position: relative;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Modal Car Info Section */
+.modal-car-info {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Car Image Inside Modal */
+.modal-car-info img {
+    width: 80%;
+    max-width: 250px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Car Name Inside Modal */
+.modal-car-info h3 {
+    font-size: 1.5rem;
+    color: navy;
+    margin-bottom: 5px;
+}
+
+/* Car Details */
+.modal-car-info p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+/* Dropdown styles inside modal */
+#bookingLocation {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+#confirmBooking {
+    appearance: button;
+    background-color: navy;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    height: 40px;
+    width: 100%;
+    /* Ensures proper button width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#confirmBooking:hover {
+    background-color: white;
+    border-style: solid;
+    border-color: navy;
+    color: navy;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}
+
+
+/* profile.html */
+/*
+#userInfo {
+    text-align: center;
+    padding: 50px 20px;
+}
+*/
+#profile-container {
+    /*
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* Ensures responsiveness */
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    margin-left: 200px;
+    padding: 50px;
+}
+
+.profile-avatar {
+    margin-top: 20px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+#profile-user {
+    margin-top: 15px;
+    font-size: 25px;
+    color: black;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+
+/*
+#userbookings {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+#booking-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: white;
+}
+
+#userBookings h4 {
+    text-align: center;
+    color: white;
+}
+
+#userBookings ul {
+    list-style-type: none;
+}
+*/
+
+.bookings-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* stack the cards vertically */
+    gap: 10px; /* space between cards */
+    margin: auto;
+}
+
+.booking-card {
+    background-color: white;
+    border-radius: 25px; /* sharp edges for a rectangle */
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#booking-details {
+    background-color: white;
+    border-radius: 0; /* sharp edges for a rectangle */
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+}
+
+#bookings-card {
+    border-radius: 8px; /* sharp edges for a rectangle */
+    padding: 20px;
+    width: 100%;
+    max-width: 1000px; /* Controls card width */
+}
+
+.bookings-title {
+    font-size: 22px;
+    color: black;
+    margin-bottom: 15px;
+}
+
+.booking-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.booking-label {
+    font-weight: bold;
+    color: #555;
+}
+
+.booking-value {
+    color: #333;
+}
+
+.booking-item {
+    border-bottom: 1px solid #d0cece;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.booking-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+
+/*
+#cancelBtn {
+    flex: 1;
+    min-width: 0
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cancel-btn:hover,
+#returnBtn:hover {
+    background-color: #0d1642;
+}
+
+#returnBtn {
+    flex: 1;
+    min-width: 0;
+
+    padding: 10px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+*/
+.button-row {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    width: 50%;
+}
+
+.button-row button {
+    flex: 1;
+    /* This makes each button take up equal space */
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    white-space: nowrap;
+}
+
+#cancelBtn {
+    background-color: red;
+    color: #fff;
+}
+
+.button-row button:hover {
+    opacity: 0.8;
+}
+
+#returnBtn {
+    background-color: navy;
+    color: #fff;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .profile-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-info {
+        margin-bottom: 30px;
+    }
+
+    .bookings-card {
+        min-width: unset;
+        width: 100%;
+    }
+
+    #booking-details {
+        min-width: 200px;
+    }
+
+}
+
+
+.cancelBooking {
+    appearance: button;
+    background-color: navy;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    height: 40px;
+    width: 100%;
+    /* Ensures proper button width */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cancelBooking:hover {
+    background-color: white;
+    border-style: solid;
+    border-color: navy;
+    color: navy;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: ease-out 0.3s;
+}
+
+
+
+/* staff-dashboard */
+.side-panel {
+    width: 250px;
+    height: 100vh;
+    /* Adjust height based on navbar */
+    background-color: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
+    color: white;
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    overflow-y: auto;
+}
+
+
+
+.side-panel h2 {
+    margin-bottom: 15px;
+}
+
+.side-panel ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-panel ul li {
+    margin: 10px 0;
+}
+
+.side-panel ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.3s;
+    font-weight: 400;
+}
+
+.side-panel ul li a:hover {
+    background-color: navy;
+    color: white;
+}
+
+.admin-profile {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.5)), url("/images/car-hero.jpg");
+    margin-left: 250px;
+    /* Side panel width */
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.profile-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 20px;
+    /* Add space below the icon */
+}
+
+.profile-icon img {
+    border-radius: 50%;
+    /* Make it circular */
+    border: 2px solid white;
+    /* Optional: Add a white border */
+    padding: 5px;
+}
+
+.profile-icon li a:hover {
+    border-radius: 50%;
+}
+
+#staff-profile {
+    width: 800px;
+    height: 80%;
+    /* Instead of using opacity, use rgba for background only */
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 50px;
+    margin: 80px;
+    border-radius: 25px;
+    /* Add display flex to help with centering */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#staff-profile h3 {
+    color: navy;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+    /* Add some space between heading and image */
+}
+
+#staff-profile img {
+    width: 150px;
+    /* Set a specific width */
+    height: 150px;
+    /* Set a specific height */
+    border-radius: 50%;
+    /* Make it circular */
+    border: 2px solid navy;
+    padding: 5px;
+    /* Remove position relative since we're using flex */
+    object-fit: cover;
+    /* Ensures image fills circle nicely */
+}
+
+#staff-profile h4 {
+    color: rgb(53, 52, 52);
+}
+
+#staff-profile p {
+    color: rgba(52, 51, 51, 0.69);
+}
+
+.content-area {
+    margin-left: 280px;
+    /* Width of the sidebar + padding */
+    padding: 20px;
+}
+
+.content-area h2 {
+    color: white;
+    text-align: center;
+}
+
+.car-table,
+.bookings-table,
+.payments-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.car-table th,
+.bookings-table th,
+.payments-table th {
+    background: #f8f9fa;
+    padding: 12px;
+    text-align: center;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.car-table td,
+.bookings-table td
+.payments-table td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.car-table tbody,
+.bookings-table tbody,
+.payments-table tbody {
+    text-align: center;
+}
+
+.car-table tr:hover {
+    background: #f9fafb;
+}
+
+.car-image {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.view-btn {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.view-btn:hover {
+    background: #1d4ed8;
+}
+
+.verifyBtn{
+    background: green;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.verifyBtn:hover{
+    opacity: 0.8;
+}
+
+.userPic{
+    width: 600px;
+    height: 25%;
+    /* Instead of using opacity, use rgba for background only */
+    background-color: rgb(255, 255, 255);
+    padding: 50px;
+    margin: 80px;
+    border-radius: 25px;
+    /* Add display flex to help with centering */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+@media (max-width: 768px){
+    .userPic{
+        width: 300px;
+    }
+}
+
+#paymentBtn{
+    text-align: center;
+    background: green;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#paymentBtn:hover{
+    opacity: 0.8;
+}
+
+.user-service{
+    width: 600px;
+    height: 18%;
+    /* Instead of using opacity, use rgba for background only */
+    background-color: rgb(255, 255, 255);
+    padding: 50px;
+    margin: 80px;
+    border-radius: 25px;
+    /* Add display flex to help with centering */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}
+
+.payment-container{
+    width: 90%;
+    height: 25%;
+    /* Instead of using opacity, use rgba for background only */
+    padding: 50px;
+    margin: 80px;
+    border-radius: 25px;
+    /* Add display flex to help with centering */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    color: black;
+}
+
+.payBtn{
+    text-align: center;
+    background: green;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.payBtn:hover{
+    opacity: 0.8;
+}
+
+.rates-container{
+    margin: auto;
+    width: 50%;
+    background-color: white;
+    border-radius: 25px;
+}
+
+
+/* search bar in cars.html*/
+.search-container{
+    max-width: 400px;
+    margin: auto;
+    padding: 10px;
+    border-radius: 15px;
+}

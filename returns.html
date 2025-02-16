@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZoom Car Rental</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/icons8-car-96.png">
+    <style>
+        /* Modal Styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            margin: 10% auto;
+            width: 300px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .close {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        textarea {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        #confirmReturnBtn, #confirmPaymentBtn, #editBtn {
+            background: green;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #confirmReturnBtn:hover, 
+        #confirmPaymentBtn:hover,
+        #editBtn:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--left side panel-->
+    <div class="side-panel">
+        <div class="logo">
+            <img src="/images/icons8-car-96.png" width="40" height="40" class="d-inline-block align-top" alt="logo.png">
+            <a href="index.html" style="color: white; padding-left: 12px; font-size: 30px;">ADMIN</a>
+        </div>
+        <br>
+        <ul>
+            <!-- Profile Icon -->
+            <div class="profile-icon">
+                <li><a href="staff-dashboard.html"><img src="images/user.png" alt="User Profile" height="60"
+                            width="60"></a></li>
+            </div>
+            <li><a href="staff-car-listings.html">Cars</a></li>
+            <li><a href="bookings.html">Bookings</a></li>
+            <li><a href="returns.html">Returns</a></li>
+            <li><a href="#logout" id="logoutButton">Logout</a></li>
+        </ul>
+    </div>
+
+    <div class="content-area">
+        <h2>Returns</h2>
+        <div id="bookingsContainer">
+            <table class="bookings-table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Car</th>
+                        <th>Pick-up Date</th>
+                        <th>Return Date</th>
+                        <th>Pick-up Time</th>
+                        <th>No. of Days</th>
+                        <th>Status</th>
+                        <th>Verify</th>
+                        <th>Mark Complete</th>
+                    </tr>
+                </thead>
+                <tbody id="returnTableBody">
+                    <!--populate user bookings here-->
+                </tbody>
+            </table>
+
+            <!-- Return Verification Modal -->
+            <div id="returnModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h4 style="color: black;">Verify Return</h4>
+                    <p><b>Car:</b> <span id="modalCarName"></span></p>
+                    <p><b>Return Date:</b> <span id="modalReturnDate"></span></p>
+                    <p><b>No. of Days:</b> <span id="modalDuration"></span></p>
+                    <p><span id="modalRate"></span></p>
+
+                    <!-- Checkbox for Damages -->
+                    <label>
+                        <input type="checkbox" id="damageCheckbox">
+                        Check if there are damages
+                    </label>
+
+                    <!-- Remarks Textarea -->
+                    <div id="remarksSection" style="display: none;">
+                        <label for="remarks">Remarks:</label>
+                        <textarea id="remarks" rows="3" placeholder="Describe the damages..."></textarea>
+                    </div>
+
+                    <!--Total Cost-->
+                    <label for="totalCost">Total Cost ($):</label>
+                    <input type="number" id="totalCost" placeholder="Enter amount" min="0">
+
+                    <!-- Confirm Button -->
+                    <button id="confirmReturnBtn">Confirm</button>
+                </div>
+            </div>
+
+            <!--verify payment modal-->
+            <div id="paymentModal" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="closePaymentModal()">&times;</span>
+                    <h4 style="color: black;">Complete Payment</h4>
+                    <p>Are you sure you want to mark complete this transaction?</p>
+                    <button id="confirmPaymentBtn">Confirm Payment</button>
+                </div>
+            </div>
+            
+
+        </div>
+    </div>
+
+    <script src="returns.js"></script>
+</body>
+
+</html>
